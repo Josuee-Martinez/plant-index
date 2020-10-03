@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+}
+img {
+  height: 300px;
+  width: 50%;
+}
+
+input {
+  margin-top: 20px;
+}
+
+.input-group.md-form.form-sm.form-2 input.lime-border {
+  border: 1px solid #cddc39;
+}
+.input-group.md-form.form-sm.form-2 button.lime-border {
+  border: 1px solid #cddc39;
+}
