@@ -18,8 +18,10 @@ export const SearchPlant = ({ searchPlant, data: { data, error } }) => {
     console.log(plant.plantName);
   };
 
+  //next link for pagination
   const getNext = (data) => {
     console.log(data.links.next);
+    //function will eventually do pagination functionality.
   };
 
   return (
