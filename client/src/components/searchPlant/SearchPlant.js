@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { searchPlant } from "../../actions/searchPlant";
+import Img from "../../assets/noImage.jpg";
 
 export const SearchPlant = ({ searchPlant, data: { data, error } }) => {
   const [plant, setPlant] = useState({
@@ -15,6 +16,10 @@ export const SearchPlant = ({ searchPlant, data: { data, error } }) => {
     e.preventDefault();
     searchPlant(plant.plantName);
     console.log(plant.plantName);
+  };
+
+  const getNext = (data) => {
+    console.log(data.links.next);
   };
 
   return (
@@ -44,9 +49,9 @@ export const SearchPlant = ({ searchPlant, data: { data, error } }) => {
           ? ""
           : data.data.map((plant, i) => (
               <div className="col mb-4 mt-4" key={i}>
-                <div className="card">
+                <div className="card card-border">
                   <img
-                    src={plant.image_url}
+                    src={plant.image_url === null ? Img : plant.image_url}
                     className="card-img-top"
                     alt="..."
                   />
@@ -56,12 +61,26 @@ export const SearchPlant = ({ searchPlant, data: { data, error } }) => {
                     <p>Family: {plant.family}</p>
                     <p>Genus: {plant.genus}</p>
                     <Link to={`/plant/${plant.id}`}>
-                      <button>{plant.id}</button>
+                      <button className="more-info-btn">More info</button>
                     </Link>
                   </div>
                 </div>
               </div>
             ))}
+        <div>
+          {data === null ? (
+            ""
+          ) : (
+            <div>
+              <Link to="/" onClick={getNext}>
+                first
+              </Link>
+              <Link to="/" onClick={getNext}>
+                next
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

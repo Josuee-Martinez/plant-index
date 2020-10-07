@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg ">
       <Link className="navbar-brand" to="/">
-        Fire and Ice
+        Plant Index
       </Link>
       <button
         className="navbar-toggler"
@@ -22,7 +22,7 @@ const Navbar = () => {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
             <Link className="nav-link" to="/war">
-              War <span className="sr-only">(current)</span>
+              Search <span className="sr-only">(current)</span>
             </Link>
           </li>
 

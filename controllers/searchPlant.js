@@ -2,6 +2,7 @@ const { Router } = require("express");
 const router = Router();
 const axios = require("axios");
 
+//Search for plant
 router.get("/:plant", async (req, res) => {
   try {
     const config = {
@@ -21,6 +22,27 @@ router.get("/:plant", async (req, res) => {
   }
 });
 
+//Plant pagination
+router.get("/", async (req, res) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `${process.env.API_KEY}`,
+      },
+    };
+
+    const response = await axios.get(
+      `https://trefle.io/api/v1/plants/search?page=2&q=grape`,
+      config
+    );
+
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+//Single plant by ID
 router.get("/plant/:id", async (req, res) => {
   try {
     const config = {
