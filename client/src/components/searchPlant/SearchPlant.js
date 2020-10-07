@@ -19,6 +19,7 @@ export const SearchPlant = ({ searchPlant, data: { data, error } }) => {
   };
 
   //next link for pagination
+  //links
   const getNext = (data) => {
     console.log(data.links.next);
     //function will eventually do pagination functionality.
