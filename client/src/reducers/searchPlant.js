@@ -2,11 +2,13 @@ import {
   SEARCH_PLANT,
   SEARCH_PLANT_ERROR,
   SEARCH_PLANT_BY_ID,
+  GET_NEXT_PAGE,
 } from "../actions/types";
 
 const initialState = {
   data: null,
   plant: null,
+  nextPage: null,
   error: {},
 };
 
@@ -29,6 +31,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error: payload,
+      };
+    case GET_NEXT_PAGE:
+      console.log(payload);
+      return {
+        ...state,
+        nextPage: payload,
       };
     default:
       return state;

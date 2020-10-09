@@ -23,7 +23,7 @@ router.get("/:plant", async (req, res) => {
 });
 
 //Plant pagination
-router.get("/", async (req, res) => {
+router.get("/next/:url", async (req, res) => {
   try {
     const config = {
       headers: {
@@ -32,7 +32,7 @@ router.get("/", async (req, res) => {
     };
 
     const response = await axios.get(
-      `https://trefle.io/api/v1/plants/search?page=2&q=grape`,
+      `https://trefle.io/${req.params.url}`,
       config
     );
 

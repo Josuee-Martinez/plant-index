@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { searchPlant } from "../../actions/searchPlant";
+import { searchPlant, getNextPage } from "../../actions/searchPlant";
 import Img from "../../assets/noImage.jpg";
 
-export const SearchPlant = ({ searchPlant, data: { data, error } }) => {
+export const SearchPlant = ({
+  searchPlant,
+  getNextPage,
+  data: { data, error, nextPage },
+}) => {
   const [plant, setPlant] = useState({
     plantName: "",
   });
@@ -20,9 +24,8 @@ export const SearchPlant = ({ searchPlant, data: { data, error } }) => {
 
   //next link for pagination
   //links
-  const getNext = (data) => {
-    console.log(data.links.next);
-    //function will eventually do pagination functionality.
+  const getNext = (url) => {
+    getNextPage(url);
   };
 
   return (
@@ -75,11 +78,8 @@ export const SearchPlant = ({ searchPlant, data: { data, error } }) => {
             ""
           ) : (
             <div>
-              <Link to="/" onClick={getNext}>
-                first
-              </Link>
-              <Link to="/" onClick={getNext}>
-                next
+              <Link to="#!">
+                <button onClick={() => getNext(data.links.next)}> Next</button>
               </Link>
             </div>
           )}
@@ -93,4 +93,6 @@ const mapStateToProps = (state) => ({
   data: state.searchPlant,
 });
 
-export default connect(mapStateToProps, { searchPlant })(SearchPlant);
+export default connect(mapStateToProps, { searchPlant, getNextPage })(
+  SearchPlant
+);

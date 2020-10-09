@@ -1,4 +1,4 @@
 export const SEARCH_PLANT = "SEARCH_PLANT";
 export const SEARCH_PLANT_BY_ID = "SEARCH_PLANT_BY_ID";
-
+export const GET_NEXT_PAGE = "GET_NEXT_PAGE";
 export const SEARCH_PLANT_ERROR = "SEARCH_PLANT_ERROR";
