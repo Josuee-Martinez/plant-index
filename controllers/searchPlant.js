@@ -23,7 +23,7 @@ router.get("/:plant", async (req, res) => {
 });
 
 //Plant pagination
-router.get("/next/:url", async (req, res) => {
+router.get("/plant/:url", async (req, res) => {
   try {
     const config = {
       headers: {

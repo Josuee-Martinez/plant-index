@@ -36,7 +36,7 @@ export const searchPlantById = (id) => async (dispatch) => {
 export const getNextPage = (url) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `http://localhost:5000/api/search/next` + encodeURIComponent(url)
+      `http://localhost:5000/api/search/plant/` + encodeURIComponent(url)
     );
 
     dispatch({ type: GET_NEXT_PAGE, payload: res.data });

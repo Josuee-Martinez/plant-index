@@ -73,13 +73,14 @@ export const SearchPlant = ({
                 </div>
               </div>
             ))}
+        <div>{nextPage === null ? "" : console.log(nextPage)}</div>
         <div>
-          {data === null ? (
+          {nextPage === null ? (
             ""
           ) : (
             <div>
               <Link to="#!">
-                <button onClick={() => getNext(data.links.next)}> Next</button>
+                <button onClick={() => getNext(nextPage)}> Next</button>
               </Link>
             </div>
           )}

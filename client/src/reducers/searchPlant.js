@@ -20,6 +20,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         data: payload,
+        nextPage: payload.links.next,
       };
     case SEARCH_PLANT_BY_ID:
       console.log(payload);
@@ -36,7 +37,7 @@ export default function (state = initialState, action) {
       console.log(payload);
       return {
         ...state,
-        nextPage: payload,
+        nextPage: payload.links.next,
       };
     default:
       return state;
