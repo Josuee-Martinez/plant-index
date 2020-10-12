@@ -37,6 +37,7 @@ export default function (state = initialState, action) {
       console.log(payload);
       return {
         ...state,
+        data: payload,
         nextPage: payload.links.next,
       };
     default:

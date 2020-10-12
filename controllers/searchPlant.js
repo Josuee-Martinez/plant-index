@@ -43,7 +43,7 @@ router.get("/plant/:url", async (req, res) => {
 });
 
 //Single plant by ID
-router.get("/plant/:id", async (req, res) => {
+router.get("/plantid/:id", async (req, res) => {
   try {
     const config = {
       headers: {

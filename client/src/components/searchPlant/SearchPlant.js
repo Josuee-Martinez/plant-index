@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { searchPlant, getNextPage } from "../../actions/searchPlant";
@@ -9,6 +9,10 @@ export const SearchPlant = ({
   getNextPage,
   data: { data, error, nextPage },
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   const [plant, setPlant] = useState({
     plantName: "",
   });
@@ -62,29 +66,38 @@ export const SearchPlant = ({
                     alt="..."
                   />
                   <div className="card-body">
-                    <h3 className="card-title">{plant.common_name}</h3>
+                    <h3 className="card-title">
+                      {plant.common_name === null
+                        ? "Name unavailable"
+                        : plant.common_name}
+                    </h3>
                     <p>Scientific name: {plant.scientific_name}</p>
                     <p>Family: {plant.family}</p>
                     <p>Genus: {plant.genus}</p>
                     <Link to={`/plant/${plant.id}`}>
-                      <button className="more-info-btn">More info</button>
+                      <button class="btn btn-dark myBtn">More info</button>
                     </Link>
                   </div>
                 </div>
               </div>
             ))}
-        <div>{nextPage === null ? "" : console.log(nextPage)}</div>
-        <div>
-          {nextPage === null ? (
-            ""
-          ) : (
-            <div>
-              <Link to="#!">
-                <button onClick={() => getNext(nextPage)}> Next</button>
-              </Link>
-            </div>
-          )}
-        </div>
+      </div>
+      <div>
+        {nextPage === null ? (
+          ""
+        ) : (
+          <div className="center">
+            <Link to="#!">
+              <button
+                className="btn btn-dark myBtn"
+                onClick={() => getNext(nextPage)}
+              >
+                {" "}
+                Next
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

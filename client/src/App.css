@@ -20,6 +20,7 @@ input {
 }
 
 .card-border {
+  background-color: #f3ecec;
   border: 1px solid #58c94c;
 }
 
@@ -30,9 +31,18 @@ input {
   border: 1px solid #58c94c;
 }
 
+.myBtn {
+  background-color: #58c94c !important;
+  color: black;
+}
+
+.center {
+  text-align: center;
+}
+/* 
 .more-info-btn {
-  /* background-color: #fff; */
+  
   border: 2px solid #58c94c;
   padding: 10px 10px;
-  /* border-radius: 50px; */
-}
+ 
+} */

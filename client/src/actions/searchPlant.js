@@ -22,7 +22,9 @@ export const searchPlant = (plant) => async (dispatch) => {
 
 export const searchPlantById = (id) => async (dispatch) => {
   try {
-    const res = await axios.get(`http://localhost:5000/api/search/plant/${id}`);
+    const res = await axios.get(
+      `http://localhost:5000/api/search/plantid/${id}`
+    );
 
     dispatch({ type: SEARCH_PLANT_BY_ID, payload: res.data });
   } catch (err) {
