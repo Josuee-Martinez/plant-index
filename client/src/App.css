@@ -1,14 +1,6 @@
-body {
-  text-align: center;
-}
-
 nav {
   background-color: #668f62 !important;
 }
-
-/* a {
-  color: black !important;
-} */
 
 img {
   height: 300px;
@@ -73,6 +65,10 @@ input {
 
 .trefle {
   color: blue !important;
+}
+
+.right-align {
+  float: right;
 }
 /* 
 .more-info-btn {
