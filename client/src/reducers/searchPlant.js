@@ -9,6 +9,7 @@ const initialState = {
   data: null,
   plant: null,
   nextPage: null,
+  previousPage: null,
   error: {},
 };
 
@@ -26,7 +27,7 @@ export default function (state = initialState, action) {
       console.log(payload);
       return {
         ...state,
-        plant: payload,
+        plant: payload.data,
       };
     case SEARCH_PLANT_ERROR:
       return {
@@ -39,6 +40,7 @@ export default function (state = initialState, action) {
         ...state,
         data: payload,
         nextPage: payload.links.next,
+        previousPage: payload.links.prev,
       };
     default:
       return state;

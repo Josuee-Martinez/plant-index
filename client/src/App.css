@@ -3,12 +3,12 @@ body {
 }
 
 nav {
-  background-color: #58c94c !important;
+  background-color: #668f62 !important;
 }
 
-a {
+/* a {
   color: black !important;
-}
+} */
 
 img {
   height: 300px;
@@ -20,24 +20,59 @@ input {
 }
 
 .card-border {
-  background-color: #f3ecec;
-  border: 1px solid #58c94c;
+  background-color: #f0eeee;
+  border: 1px solid #668f62;
 }
 
 .input-group.md-form.form-sm.form-2 input.lime-border {
-  border: 1px solid #58c94c;
+  border: 1px solid #668f62;
 }
 .input-group.md-form.form-sm.form-2 button.lime-border {
-  border: 1px solid #58c94c;
+  border: 1px solid #668f62;
 }
 
 .myBtn {
-  background-color: #58c94c !important;
-  color: black;
+  background-color: #668f62 !important;
+}
+
+.pagingBtn {
+  margin: 10px;
+}
+
+.landing-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)),
+    url(./assets//benjamin-combs-wuU_SSxDeS0-unsplash.jpg);
+  /* background: url(./assets/abhishek-shrimali-0LTtbNP7okE-unsplash.jpg); */
+  height: calc(100vh - 55px);
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landing {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+.landing-heading {
+  font-size: 2em;
+}
+
+.landing-paragraph {
+  font-size: 1.5em;
 }
 
 .center {
   text-align: center;
+}
+
+.trefle {
+  color: blue !important;
 }
 /* 
 .more-info-btn {

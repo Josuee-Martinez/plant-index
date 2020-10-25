@@ -7,7 +7,7 @@ import Img from "../../assets/noImage.jpg";
 export const SearchPlant = ({
   searchPlant,
   getNextPage,
-  data: { data, error, nextPage },
+  data: { data, error, nextPage, previousPage },
 }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,13 +33,13 @@ export const SearchPlant = ({
   };
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="input-group md-form form-sm form-2 pl-0 mt-4">
           <input
             className="form-control my-0 py-1 lime-border"
             type="text"
-            placeholder="Search"
+            placeholder="Search for plant"
             name="plantName"
             onChange={handleChange}
             value={plant.plantName}
@@ -54,6 +54,11 @@ export const SearchPlant = ({
           </div>
         </div>
       </form>
+      <h3 className="mt-4">
+        {data === null
+          ? "Search for a plant"
+          : `Search results for: ${plant.plantName}`}
+      </h3>
       <div className="row row-cols-1 row-cols-md-2">
         {data === null
           ? ""
@@ -66,16 +71,15 @@ export const SearchPlant = ({
                     alt="..."
                   />
                   <div className="card-body">
-                    <h3 className="card-title">
+                    <h5 className="card-title">
                       {plant.common_name === null
                         ? "Name unavailable"
                         : plant.common_name}
-                    </h3>
-                    <p>Scientific name: {plant.scientific_name}</p>
+                    </h5>
                     <p>Family: {plant.family}</p>
                     <p>Genus: {plant.genus}</p>
                     <Link to={`/plant/${plant.id}`}>
-                      <button class="btn btn-dark myBtn">More info</button>
+                      <button className="btn btn-dark myBtn">More info</button>
                     </Link>
                   </div>
                 </div>
@@ -83,20 +87,28 @@ export const SearchPlant = ({
             ))}
       </div>
       <div>
+        {previousPage === null || previousPage === undefined ? (
+          ""
+        ) : (
+          <button
+            className="btn btn-dark myBtn"
+            onClick={() => getNext(previousPage)}
+          >
+            {" "}
+            Prev
+          </button>
+        )}
+
         {nextPage === null ? (
           ""
         ) : (
-          <div className="center">
-            <Link to="#!">
-              <button
-                className="btn btn-dark myBtn"
-                onClick={() => getNext(nextPage)}
-              >
-                {" "}
-                Next
-              </button>
-            </Link>
-          </div>
+          <button
+            className="btn btn-dark myBtn pagingBtn"
+            onClick={() => getNext(nextPage)}
+          >
+            {" "}
+            Next
+          </button>
         )}
       </div>
     </div>
