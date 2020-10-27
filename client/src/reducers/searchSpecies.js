@@ -1,35 +1,47 @@
 import {
-  SEARCH_PLANT,
-  SEARCH_PLANT_ERROR,
-  SEARCH_PLANT_BY_ID,
+  SEARCH_SPECIES,
+  SEARCH_SPECIES_ERROR,
+  SEARCH_SPECIES_BY_ID,
   GET_NEXT_PAGE,
 } from "../actions/types";
 
 const initialState = {
   data: null,
-  plant: null,
+  species: null,
   nextPage: null,
   previousPage: null,
+  bark: null,
+  flower: null,
+  fruit: null,
+  habit: null,
+  leaf: null,
+  other: null,
   error: {},
 };
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case SEARCH_PLANT:
+    case SEARCH_SPECIES:
       console.log(payload);
       return {
         ...state,
         data: payload,
         nextPage: payload.links.next,
       };
-    case SEARCH_PLANT_BY_ID:
+    case SEARCH_SPECIES_BY_ID:
       console.log(payload);
       return {
         ...state,
-        plant: payload.data,
+        species: payload.data,
+        bark: payload.data.images.bark,
+        flower: payload.data.images.flower,
+        fruit: payload.data.images.fruit,
+        habit: payload.data.images.habit,
+        leaf: payload.data.images.leaf,
+        other: payload.data.images.other,
       };
-    case SEARCH_PLANT_ERROR:
+    case SEARCH_SPECIES_ERROR:
       return {
         ...state,
         error: payload,

@@ -12,7 +12,7 @@ input {
 }
 
 .card-border {
-  background-color: #f0eeee;
+  /* background-color: #f0eeee !important; */
   border: 1px solid #668f62;
 }
 
@@ -70,6 +70,25 @@ input {
 .right-align {
   float: right;
 }
+
+.deck {
+  margin: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 500px;
+}
+
+/* .carousel-text {
+  color: #000;
+} */
+
+/* .deck img {
+  display: block;
+  max-width: 100%;
+  width
+  
+} */
 /* 
 .more-info-btn {
   

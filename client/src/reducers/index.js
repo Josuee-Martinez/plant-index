@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 
-import searchPlant from "./searchPlant";
+import searchSpecies from "./searchSpecies";
 
-export default combineReducers({ searchPlant });
+export default combineReducers({ searchSpecies });

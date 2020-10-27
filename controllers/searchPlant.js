@@ -3,7 +3,7 @@ const router = Router();
 const axios = require("axios");
 
 //Search for plant
-router.get("/:plant", async (req, res) => {
+router.get("/:species", async (req, res) => {
   try {
     const config = {
       headers: {
@@ -12,7 +12,7 @@ router.get("/:plant", async (req, res) => {
     };
 
     const response = await axios.get(
-      `https://trefle.io/api/v1/plants/search?q=${req.params.plant}`,
+      `https://trefle.io/api/v1/species/search?q=${req.params.species}`,
       config
     );
 
@@ -43,7 +43,7 @@ router.get("/plant/:url", async (req, res) => {
 });
 
 //Single plant by ID
-router.get("/plantid/:id", async (req, res) => {
+router.get("/speciesid/:id", async (req, res) => {
   try {
     const config = {
       headers: {
@@ -52,7 +52,7 @@ router.get("/plantid/:id", async (req, res) => {
     };
 
     const response = await axios.get(
-      `https://trefle.io/api/v1/plants/${req.params.id}`,
+      `https://trefle.io/api/v1/species/${req.params.id}`,
       config
     );
 

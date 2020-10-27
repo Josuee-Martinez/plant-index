@@ -5,8 +5,8 @@ import store from "./store";
 import Navbar from "./components/layout/Navbar";
 import Home from "./components/layout/Home";
 
-import SearchPlant from "./components/searchPlant/SearchPlant";
-import SearchId from "./components/searchPlant/SearchId";
+import SearchSpecies from "./components/searchSpecies/SearchSpecies";
+import SearchId from "./components/searchSpecies/SearchId";
 import "./App.css";
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
         <Fragment>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/search" component={SearchPlant} />
-            <Route exact path="/plant/:id" component={SearchId} />
+            <Route exact path="/search" component={SearchSpecies} />
+            <Route exact path="/species/:id" component={SearchId} />
           </Switch>
         </Fragment>
       </Router>
