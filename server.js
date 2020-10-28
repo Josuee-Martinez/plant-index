@@ -18,7 +18,9 @@ if (process.env.NODE_ENV === "production") {
    );
 }
 
-const server = app.listen(5000, console.log("express running"));
+const PORT = process.env.PORT || 5000;
+
+const server = app.listen(PORT, console.log("express running"));
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (err, promise) => {

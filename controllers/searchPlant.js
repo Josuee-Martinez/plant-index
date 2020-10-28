@@ -1,13 +1,15 @@
 const { Router } = require("express");
 const router = Router();
 const axios = require("axios");
+const config = require("config");
+const apiKey = config.get("apiKey");
 
 //Search for plant
 router.get("/:species", async (req, res) => {
    try {
       const config = {
          headers: {
-            Authorization: `${process.env.API_KEY}`,
+            Authorization: apiKey,
          },
       };
 
@@ -27,7 +29,7 @@ router.get("/species/:url", async (req, res) => {
    try {
       const config = {
          headers: {
-            Authorization: `${process.env.API_KEY}`,
+            Authorization: apiKey,
          },
       };
 
@@ -47,7 +49,7 @@ router.get("/speciesid/:id", async (req, res) => {
    try {
       const config = {
          headers: {
-            Authorization: `${process.env.API_KEY}`,
+            Authorization: apiKey,
          },
       };
 
