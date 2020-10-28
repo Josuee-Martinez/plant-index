@@ -1,4 +1,5 @@
 import axios from "axios";
+import APIURL from "../helpers/environment";
 
 import {
    SEARCH_SPECIES,
@@ -9,9 +10,7 @@ import {
 
 export const searchSpecies = (species) => async (dispatch) => {
    try {
-      const res = await axios.get(
-         `http://localhost:5000/api/search/${species}`
-      );
+      const res = await axios.get(`${APIURL}/api/search/${species}`);
 
       dispatch({ type: SEARCH_SPECIES, payload: res.data });
    } catch (err) {
@@ -24,9 +23,7 @@ export const searchSpecies = (species) => async (dispatch) => {
 
 export const searchSpeciesById = (id) => async (dispatch) => {
    try {
-      const res = await axios.get(
-         `http://localhost:5000/api/search/speciesid/${id}`
-      );
+      const res = await axios.get(`${APIURL}/api/search/speciesid/${id}`);
 
       dispatch({ type: SEARCH_SPECIES_BY_ID, payload: res.data });
    } catch (err) {
@@ -40,7 +37,7 @@ export const searchSpeciesById = (id) => async (dispatch) => {
 export const getNextPage = (url) => async (dispatch) => {
    try {
       const res = await axios.get(
-         `http://localhost:5000/api/search/species/` + encodeURIComponent(url)
+         `${APIURL}/api/search/species/` + encodeURIComponent(url)
       );
 
       dispatch({ type: GET_NEXT_PAGE, payload: res.data });
