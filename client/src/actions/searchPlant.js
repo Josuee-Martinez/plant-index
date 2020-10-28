@@ -16,7 +16,6 @@ export const searchSpecies = (species) => async (dispatch) => {
    } catch (err) {
       dispatch({
          type: SEARCH_SPECIES_ERROR,
-         // payload: { msg: err.response.statusText, status: err.response.status },
       });
    }
 };
@@ -29,7 +28,7 @@ export const searchSpeciesById = (id) => async (dispatch) => {
    } catch (err) {
       dispatch({
          type: SEARCH_SPECIES_ERROR,
-         // payload: { msg: err.response.statusText, status: err.response.status },
+         payload: err,
       });
    }
 };
@@ -44,7 +43,7 @@ export const getNextPage = (url) => async (dispatch) => {
    } catch (err) {
       dispatch({
          type: SEARCH_SPECIES_ERROR,
-         // payload: { msg: err.response.statusText, status: err.response.status },
+         payload: err,
       });
    }
 };
