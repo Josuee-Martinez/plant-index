@@ -1,5 +1,6 @@
 import {
    SEARCH_SPECIES,
+   SEARCH_RANDOM,
    SEARCH_SPECIES_ERROR,
    SEARCH_SPECIES_BY_ID,
    GET_NEXT_PAGE,
@@ -16,6 +17,7 @@ const initialState = {
    habit: null,
    leaf: null,
    other: null,
+   random: null,
    error: {},
 };
 
@@ -28,6 +30,7 @@ export default function (state = initialState, action) {
             ...state,
             data: payload,
             nextPage: payload.links.next,
+            random: null,
          };
       case SEARCH_SPECIES_BY_ID:
          console.log(payload);
@@ -40,6 +43,16 @@ export default function (state = initialState, action) {
             habit: payload.data.images.habit,
             leaf: payload.data.images.leaf,
             other: payload.data.images.other,
+         };
+      case SEARCH_RANDOM:
+         console.log(
+            payload.data[Math.floor(Math.random() * payload.data.length)]
+         );
+         return {
+            ...state,
+            random:
+               payload.data[Math.floor(Math.random() * payload.data.length)],
+            data: null,
          };
       case SEARCH_SPECIES_ERROR:
          return {

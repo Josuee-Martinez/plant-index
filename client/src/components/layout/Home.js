@@ -1,23 +1,14 @@
 import React from "react";
-
-const Home = () => {
+import SearchSpecies from "../searchSpecies/SearchSpecies";
+import SearchForm from "../searchSpecies/SearchForm";
+import Random from "../searchSpecies/Random";
+export const Home = () => {
    return (
-      <section className="landing-section" id="home">
-         <div className="landing">
-            <h1 className="landing-heading">Welcome to Plant Index.</h1>
-            <p className="landing-paragraph">
-               a place for gardeners and nature lovers to search and find plant
-               information using the{" "}
-               <a
-                  href="https://trefle.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-               >
-                  trefle API
-               </a>
-            </p>
-         </div>
-      </section>
+      <div className="container center">
+         <SearchForm />
+         <SearchSpecies />
+         <Random />
+      </div>
    );
 };
 

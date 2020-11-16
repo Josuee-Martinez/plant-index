@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { searchSpecies, getNextPage } from "../../actions/searchPlant";
+import { getNextPage } from "../../actions/searchPlant";
 import Img from "../../assets/noImage.jpg";
 
 export const SearchSpecies = ({
-   searchSpecies,
    getNextPage,
    data: { data, error, nextPage, previousPage },
 }) => {
@@ -13,55 +12,13 @@ export const SearchSpecies = ({
       window.scrollTo(0, 0);
    });
 
-   const [species, setSpecies] = useState({
-      speciesName: "",
-   });
-
-   const handleChange = (e) =>
-      setSpecies({ ...species, [e.target.name]: e.target.value });
-
-   const handleSubmit = (e) => {
-      e.preventDefault();
-      searchSpecies(species.speciesName);
-      console.log(species.speciesName);
-   };
-
    //next link for pagination
-   //links
    const getNext = (url) => {
       getNextPage(url);
    };
 
    return (
-      <div className="container center">
-         <form onSubmit={handleSubmit}>
-            <div className="input-group md-form form-sm form-2 pl-0 mt-4">
-               <input
-                  className="form-control my-0 lime-border"
-                  type="text"
-                  placeholder="Search for plant"
-                  name="speciesName"
-                  onChange={handleChange}
-                  value={species.speciesName}
-               />
-               <div className="input-group-append">
-                  <button
-                     type="submit"
-                     className="btn input-group-text lime-border lighten-2"
-                  >
-                     <i
-                        className="fas fa-search text-grey"
-                        aria-hidden="true"
-                     ></i>
-                  </button>
-               </div>
-            </div>
-         </form>
-         <h3 className="mt-4">
-            {data === null
-               ? "Search for a plant"
-               : `Search results for: ${species.speciesName}`}
-         </h3>
+      <Fragment>
          <div className="row row-cols-1 row-cols-md-2">
             {data === null
                ? ""
@@ -110,11 +67,6 @@ export const SearchSpecies = ({
             {nextPage === null ? (
                ""
             ) : (
-               // <button
-               //    className="btn btn-dark myBtn pagingBtn"
-               //    onClick={() => getNext(nextPage)}
-               //    >
-
                <button
                   className="pagination-btn"
                   onClick={() => getNext(nextPage)}
@@ -123,7 +75,7 @@ export const SearchSpecies = ({
                </button>
             )}
          </div>
-      </div>
+      </Fragment>
    );
 };
 
@@ -131,6 +83,4 @@ const mapStateToProps = (state) => ({
    data: state.searchSpecies,
 });
 
-export default connect(mapStateToProps, { searchSpecies, getNextPage })(
-   SearchSpecies
-);
+export default connect(mapStateToProps, { getNextPage })(SearchSpecies);

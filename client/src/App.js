@@ -6,7 +6,6 @@ import Navbar from "./components/layout/Navbar";
 import Home from "./components/layout/Home";
 import About from "./components/layout/About";
 
-import SearchSpecies from "./components/searchSpecies/SearchSpecies";
 import SearchId from "./components/searchSpecies/SearchId";
 import "./App.css";
 
@@ -20,8 +19,6 @@ function App() {
                <Switch>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/about" component={About} />
-
-                  <Route exact path="/search" component={SearchSpecies} />
                   <Route exact path="/species/:id" component={SearchId} />
                </Switch>
             </Fragment>

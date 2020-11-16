@@ -6,6 +6,7 @@ import {
    SEARCH_SPECIES_BY_ID,
    GET_NEXT_PAGE,
    SEARCH_SPECIES_ERROR,
+   SEARCH_RANDOM,
 } from "./types";
 
 export const searchSpecies = (species) => async (dispatch) => {
@@ -29,6 +30,18 @@ export const searchSpeciesById = (id) => async (dispatch) => {
       dispatch({
          type: SEARCH_SPECIES_ERROR,
          payload: err,
+      });
+   }
+};
+
+export const searchRandom = (species) => async (dispatch) => {
+   try {
+      const res = await axios.get(`${APIURL}/api/search/${species}`);
+
+      dispatch({ type: SEARCH_RANDOM, payload: res.data });
+   } catch (err) {
+      dispatch({
+         type: SEARCH_SPECIES_ERROR,
       });
    }
 };
