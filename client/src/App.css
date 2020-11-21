@@ -1,3 +1,10 @@
+body {
+   min-height: 100vh; /* will cover the 100% of viewport */
+
+   display: block;
+   position: relative;
+   padding-bottom: 56px; /* height of your footer */
+}
 nav {
    background-color: #668f62 !important;
 }
@@ -15,9 +22,10 @@ input {
    border: 1px solid #668f62;
 }
 
-.card {
+.random {
    width: 50%;
-   align-self: center;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 .input-group.md-form.form-sm.form-2 input.lime-border {
@@ -79,4 +87,32 @@ input {
    display: block;
    width: 100%;
    height: 500px;
+}
+
+footer {
+   /* text-align: center;
+   margin: auto; */
+   background-color: #668f62;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 56px;
+   color: #fff;
+}
+
+footer p {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.api-link {
+   color: #fff;
+   border-bottom: 1px solid #fff;
+}
+
+.api-link:hover {
+   color: rgb(49, 49, 197);
+   border-bottom: none;
 }

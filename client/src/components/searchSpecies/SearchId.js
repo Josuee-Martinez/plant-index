@@ -18,9 +18,7 @@ const SearchId = ({
             ""
          ) : (
             <div className="container">
-               {/* <div className="row">
-            <div className="col-12"> */}
-               <div className="card mt-5">
+               <div className="card mt-4">
                   <img
                      src={species.image_url}
                      className="card-img-top img"
@@ -62,126 +60,139 @@ const SearchId = ({
                   </ul>
                </div>
 
-               <Carousel className="pt-4">
-                  {flower === null || flower.length <= 0
-                     ? ""
-                     : flower.map((img, i) => (
-                          <Carousel.Item key={i}>
-                             <img
-                                src={img.image_url}
-                                className="img"
-                                alt="species"
-                             />
-                             <Carousel.Caption>
-                                <div className="carousel-text">
-                                   <h5>Flower images</h5>
-                                   <p>{img.copyright}</p>
-                                </div>
-                             </Carousel.Caption>
-                          </Carousel.Item>
-                       ))}
-               </Carousel>
+               {flower === null || flower.length <= 0 ? (
+                  ""
+               ) : (
+                  <Carousel className="mt-4">
+                     {flower.map((img, i) => (
+                        <Carousel.Item key={i}>
+                           <img
+                              src={img.image_url}
+                              className="img"
+                              alt="species"
+                           />
+                           <Carousel.Caption>
+                              <div className="carousel-text">
+                                 <h5>Flower images</h5>
+                                 <p>{img.copyright}</p>
+                              </div>
+                           </Carousel.Caption>
+                        </Carousel.Item>
+                     ))}
+                  </Carousel>
+               )}
 
-               <Carousel className="pt-4">
-                  {fruit === null || fruit.length <= 0
-                     ? ""
-                     : fruit.map((img, i) => (
-                          <Carousel.Item key={i}>
-                             <img
-                                src={img.image_url}
-                                className="img"
-                                alt="species"
-                             />
-                             <Carousel.Caption>
-                                <div className="carousel-text">
-                                   <h5>Fruit images</h5>
-                                   <p>{img.copyright}</p>
-                                </div>
-                             </Carousel.Caption>
-                          </Carousel.Item>
-                       ))}
-               </Carousel>
+               {fruit === null || fruit.length <= 0 ? (
+                  ""
+               ) : (
+                  <Carousel className="mt-4">
+                     {fruit.map((img, i) => (
+                        <Carousel.Item key={i}>
+                           <img
+                              src={img.image_url}
+                              className="img"
+                              alt="species"
+                           />
+                           <Carousel.Caption>
+                              <div className="carousel-text">
+                                 <h5>Fruit images</h5>
+                                 <p>{img.copyright}</p>
+                              </div>
+                           </Carousel.Caption>
+                        </Carousel.Item>
+                     ))}
+                  </Carousel>
+               )}
 
-               <Carousel className="pt-4">
-                  {leaf === null || leaf.length <= 0
-                     ? ""
-                     : leaf.map((img, i) => (
-                          <Carousel.Item key={i}>
-                             <img
-                                src={img.image_url}
-                                className="img"
-                                alt="species"
-                             />
-                             <Carousel.Caption>
-                                <div className="carousel-text">
-                                   <h5>Leaf images</h5>
-                                   <p>{img.copyright}</p>
-                                </div>
-                             </Carousel.Caption>
-                          </Carousel.Item>
-                       ))}
-               </Carousel>
+               {leaf === null || leaf.length <= 0 ? (
+                  ""
+               ) : (
+                  <Carousel className="mt-4">
+                     {leaf.map((img, i) => (
+                        <Carousel.Item key={i}>
+                           <img
+                              src={img.image_url}
+                              className="img"
+                              alt="species"
+                           />
+                           <Carousel.Caption>
+                              <div className="carousel-text">
+                                 <h5>Leaf images</h5>
+                                 <p>{img.copyright}</p>
+                              </div>
+                           </Carousel.Caption>
+                        </Carousel.Item>
+                     ))}
+                  </Carousel>
+               )}
 
-               <Carousel className="pt-4">
-                  {bark === null || bark.length <= 0
-                     ? ""
-                     : bark.map((img, i) => (
-                          <Carousel.Item key={i}>
-                             <img
-                                src={img.image_url}
-                                className="img"
-                                alt="species"
-                             />
-                             <Carousel.Caption>
-                                <div className="carousel-text">
-                                   <h5>Bark images</h5>
-                                   <p>{img.copyright}</p>
-                                </div>
-                             </Carousel.Caption>
-                          </Carousel.Item>
-                       ))}
-               </Carousel>
+               {bark === null || bark.length <= 0 ? (
+                  ""
+               ) : (
+                  <Carousel className="mt-4">
+                     {bark.map((img, i) => (
+                        <Carousel.Item key={i}>
+                           <img
+                              src={img.image_url}
+                              className="img"
+                              alt="species"
+                           />
+                           <Carousel.Caption>
+                              <div className="carousel-text">
+                                 <h5>Bark images</h5>
+                                 <p>{img.copyright}</p>
+                              </div>
+                           </Carousel.Caption>
+                        </Carousel.Item>
+                     ))}
+                  </Carousel>
+               )}
 
-               <Carousel className="pt-4">
-                  {habit === null || habit.length <= 0
-                     ? ""
-                     : habit.map((img, i) => (
-                          <Carousel.Item key={i}>
-                             <img
-                                src={img.image_url}
-                                className="img"
-                                alt="species"
-                             />
-                             <Carousel.Caption>
-                                <div className="carousel-text">
-                                   <h5>Habit images</h5>
-                                   <p>{img.copyright}</p>
-                                </div>
-                             </Carousel.Caption>
-                          </Carousel.Item>
-                       ))}
-               </Carousel>
+               {habit === null || habit.length <= 0 ? (
+                  ""
+               ) : (
+                  <Carousel className="mt-4">
+                     {habit.map((img, i) => (
+                        <Carousel.Item key={i}>
+                           <img
+                              src={img.image_url}
+                              className="img"
+                              alt="species"
+                           />
+                           <Carousel.Caption>
+                              <div className="carousel-text">
+                                 <h5>Habit images</h5>
+                                 <p>{img.copyright}</p>
+                              </div>
+                           </Carousel.Caption>
+                        </Carousel.Item>
+                     ))}
+                  </Carousel>
+               )}
 
-               <Carousel className="pt-4">
-                  {other === null || other.length <= 0
-                     ? ""
-                     : other.map((img, i) => (
-                          <Carousel.Item key={i}>
-                             <img
-                                src={img.image_url}
-                                className="img"
-                                alt="species"
-                             />
-                             <Carousel.Caption>
-                                <div className="carousel-text">
-                                   <h5>Other images</h5>
-                                   <p>{img.copyright}</p>
-                                </div>
-                             </Carousel.Caption>
-                          </Carousel.Item>
-                       ))}
-               </Carousel>
-               <div className="card mt-4 p-4">
+               {other === null || other.length <= 0 ? (
+                  ""
+               ) : (
+                  <Carousel className="mt-4">
+                     {other.map((img, i) => (
+                        <Carousel.Item key={i}>
+                           <img
+                              src={img.image_url}
+                              className="img"
+                              alt="species"
+                           />
+                           <Carousel.Caption>
+                              <div className="carousel-text">
+                                 <h5>Other images</h5>
+                                 <p>{img.copyright}</p>
+                              </div>
+                           </Carousel.Caption>
+                        </Carousel.Item>
+                     ))}
+                  </Carousel>
+               )}
+
+               <div className="card mb-4 mt-4 p-4">
                   <div className="center">
                      <h5>Other sources</h5>
                   </div>

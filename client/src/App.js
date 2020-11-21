@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+
 import Home from "./components/layout/Home";
 import About from "./components/layout/About";
 
@@ -14,7 +16,6 @@ function App() {
       <Provider store={store}>
          <Router>
             <Navbar />
-
             <Fragment>
                <Switch>
                   <Route exact path="/" component={Home} />
@@ -22,6 +23,7 @@ function App() {
                   <Route exact path="/species/:id" component={SearchId} />
                </Switch>
             </Fragment>
+            <Footer />
          </Router>
       </Provider>
    );

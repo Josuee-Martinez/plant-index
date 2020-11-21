@@ -27,23 +27,28 @@ const Random = ({ searchRandom, data: { random } }) => {
          {random === null ? (
             ""
          ) : (
-            <div className="card d-flex">
-               <img
-                  src={random.image_url}
-                  className="card-img-top img"
-                  alt="..."
-               />
-               <div className="card-body">
-                  <h5 className="card-title">
-                     {random.common_name === null
-                        ? "Name unavailable"
-                        : random.common_name}
-                  </h5>
-                  <p>Family: {random.family}</p>
-                  <p>Genus: {random.genus}</p>
-                  <Link to={`/species/${random.id}`}>
-                     <button className="btn btn-dark myBtn">More info</button>
-                  </Link>
+            <div className="random mt-4 mb-4">
+               <h5>Plant of the day.</h5>
+               <div className="card">
+                  <img
+                     src={random.image_url}
+                     className="card-img-top img"
+                     alt="..."
+                  />
+                  <div className="card-body">
+                     <h5 className="card-title">
+                        {random.common_name === null
+                           ? "Name unavailable"
+                           : random.common_name}
+                     </h5>
+                     <p>Family: {random.family}</p>
+                     <p>Genus: {random.genus}</p>
+                     <Link to={`/species/${random.id}`}>
+                        <button className="btn btn-dark myBtn">
+                           More info
+                        </button>
+                     </Link>
+                  </div>
                </div>
             </div>
          )}
