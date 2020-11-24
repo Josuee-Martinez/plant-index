@@ -1,6 +1,7 @@
 import React, { useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { searchRandom } from "../../actions/searchPlant";
+import Img from "../../assets/noImage.jpg";
 
 import { connect } from "react-redux";
 const Random = ({ searchRandom, data: { random } }) => {
@@ -28,10 +29,10 @@ const Random = ({ searchRandom, data: { random } }) => {
             ""
          ) : (
             <div className="random mt-4 mb-4">
-               <h5>Plant of the day.</h5>
-               <div className="card">
+               <h5>Featured plant:</h5>
+               <div className="card card-border">
                   <img
-                     src={random.image_url}
+                     src={random.image_url === null ? Img : random.image_url}
                      className="card-img-top img"
                      alt="..."
                   />
