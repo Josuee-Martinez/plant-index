@@ -53,6 +53,8 @@ export default function (state = initialState, action) {
             random:
                payload.data[Math.floor(Math.random() * payload.data.length)],
             data: null,
+            nextPage: null,
+            previousPage: null,
          };
       case SEARCH_SPECIES_ERROR:
          return {
