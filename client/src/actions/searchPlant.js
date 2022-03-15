@@ -34,17 +34,17 @@ export const searchSpeciesById = (id) => async (dispatch) => {
    }
 };
 
-export const searchRandom = (species) => async (dispatch) => {
-   try {
-      const res = await axios.get(`${APIURL}/api/search/${species}`);
+// export const searchRandom = (species) => async (dispatch) => {
+//    try {
+//       const res = await axios.get(`${APIURL}/api/search/${species}`);
 
-      dispatch({ type: SEARCH_RANDOM, payload: res.data });
-   } catch (err) {
-      dispatch({
-         type: SEARCH_SPECIES_ERROR,
-      });
-   }
-};
+//       dispatch({ type: SEARCH_RANDOM, payload: res.data });
+//    } catch (err) {
+//       dispatch({
+//          type: SEARCH_SPECIES_ERROR,
+//       });
+//    }
+// };
 
 export const getNextPage = (url) => async (dispatch) => {
    try {
